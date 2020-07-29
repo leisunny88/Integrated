@@ -1,135 +1,161 @@
 <!doctype html>
 <html lang="zh-cn">
 <head>
-<meta charset="utf-8">
-<title>个人收藏</title>
-<meta name="keywords" content="心情语录随笔,个人博客模板" />
-<meta name="description" content="心情日记,总有一些文字,触动心灵,总有一句情话美到窒息,总有一段心语,痛彻心扉,总有一些句子,说到你的心坎。" />
-<link href="http://www.lmlblog.com/winter/templets/xq/style/base.css" rel="stylesheet">
-<link href="http://www.lmlblog.com/winter/templets/xq/style/index.css" rel="stylesheet">
-<!--[if lt IE 9]>
+    <meta charset="utf-8">
+    <title>个人收藏</title>
+    <meta name="keywords" content="个人综合类网站"/>
+    <meta name="description" content="心情日记,总有一些文字,触动心灵,总有一句情话美到窒息,总有一段心语,痛彻心扉,总有一些句子,说到你的心坎。"/>
+    <link href="http://www.lmlblog.com/winter/templets/xq/style/base.css" rel="stylesheet">
+    <link href="http://www.lmlblog.com/winter/templets/xq/style/index.css" rel="stylesheet">
+    <!--[if lt IE 9]>
 <script src="http://www.lmlblog.com/winter/templets/xq/js/modernizr.js"></script>
 <![endif]-->
 </head>
 <body>
 <header>
-<img src="http://www.lmlblog.com/winter/templets/xq/images/logo.png" alt="心情语录随笔" width="70" height="60">
+    <img src="http://www.lmlblog.com/winter/templets/xq/images/logo.png" alt="心情语录随笔" width="70" height="60">
     <div class="jumbotron">
-  <h1 style="font-size: 25px"><a href="#">Welcome to my personal web</a></h1>
-  <p>Read too many inspirational stories, suddenly found that the dream or have nothing to do with their own.</p>
+        <h1 style="font-size: 25px"><a href="#">Welcome to my personal web</a></h1>
+        <p>Read too many inspirational stories, suddenly found that the dream or have nothing to do with their own.</p>
     </div>
 </header>
 <nav id="nav">
-     <ul>
-        <li><a href="#" >网站首页</a></li>
-        <li><a href="#" title="唯美语录">***</a></li>
-	<li><a href="#" title="心情随笔">***</a></li>
-	<li><a href="#" title="心情语录">***</a></li>
-        <li><a href="#" target="_blank" title="生活笔记">***</a></li>
-        <li><a href="#" target="_blank" title="慢生活">***</a></li>
-        <li><a href="#" title="留言板">***</a></li>
-     </ul>
+    <ul>
+        <li><a href="#">网站首页</a></li>
+        <li><a href="#" title="唯美语录">小说栏目</a></li>
+        <li><a href="http://127.0.0.1:8000/index/newspage/" title="时事新闻">新闻栏目</a></li>
+        <li><a href="#" title="心情语录">图片栏目</a></li>
+        <li><a href="#" target="_blank" title="生活笔记">视频栏目</a></li>
+        <li><a href="#" target="_blank" title="慢生活">个人栏目</a></li>
+        <li><a href="#" title="留言板">精彩生活</a></li>
+    </ul>
 </nav>
 <div class="article">
-  <div class="content">
-      <div class="site-search">
-       <div id="search" style="text-align:center;vertical-align:middle;">
-           <input type="text" name="s" class="text" placeholder="" style="font-size: 25px;background: beige">
-           <button type="button" onclick="javascript:doSearch();" class="submit" style="font-size: 23px;color: darkred">搜索</button>
-<!--           <button id="xxx" style="background: #3d83fa;color: #fefefe">添加关键词</button>-->
-       </div>
-   </div>
-      <h3><p><span>推荐</span>文章 New Blog</p></h3>
-      <a href="#" target="_blank"><img src="http://www.lmlblog.com/winter/uploads/allimg/160206/1-160206150424-lp.png" alt="男女清晨4不要，晚上5不要！" title="男女清晨4不要，晚上5不要！" width="315" height="205" class="topimg"></a>
+    <div class="content">
+        <div class="site-search">
+            <div id="search" style="text-align:center;vertical-align:middle;">
+                <input type="text" name="s" class="text" placeholder="" style="font-size: 25px;background: beige">
+                <button type="button" onclick="javascript:doSearch();" class="submit"
+                        style="font-size: 23px;color: darkred">搜索
+                </button>
+                <!--           <button id="xxx" style="background: #3d83fa;color: #fefefe">添加关键词</button>-->
+            </div>
+        </div>
+        <h3><p><span>推荐</span>文章 New Blog</p></h3>
+        <a href="#" target="_blank"><img
+                src="http://www.lmlblog.com/winter/uploads/allimg/160206/1-160206150424-lp.png"
+                alt="" title="{{ news_list.0.title }}" width="315" height="205"
+                class="topimg"></a>
 
-      <ul class="topblog">
-      <li><a href="#" title="你人再好有屁用！"  target="_blank"><span></span></a></li>
-<li><a href="#" title="致自己—真的好累！！"  target="_blank"><span></span></a></li>
-<li><a href="#" title="你越是对别人好，别人越是不懂珍惜！"  target="_blank"><span></span></a></li>
+        <ul class="topblog">
+            <li><a href="{{ news_list.0.newurl }}" title="" target="_blank" style="font-size: 12px">{{ news_list.0.title }}<span></span></a></li>
 
-      </ul>
-      <h3><p><span>美图分享</span>  Share</p></h3>
-      <ul class="template">
-        <li><a href="#" title="这世界上有两种东西，是别人抢不走的！" target="_blank"><img src="http://www.lmlblog.com/winter/uploads/allimg/160924/1-1609240U433.jpg" alt="这世界上有两种东西，是别人抢不走的！"></a><span></span></li>
-<li><a href="#" title="手机被偷，一个短信让小偷跑步送回" target="_blank"><img src="http://www.lmlblog.com/winter/uploads/allimg/160816/1-160Q60H537.jpg" alt="手机被偷，一个短信让小偷跑步送回"></a><span></span></li>
-<li><a href="#" title="我  累  了  ……" target="_blank"><img src="http://www.lmlblog.com/winter/uploads/allimg/160816/1-160Q60GR9.jpg" alt="我  累  了  ……"></a><span></span></li>
-<li><a href="#" title="忙是为了生活，慢是为了享受生活" target="_blank"><img src="http://www.lmlblog.com/winter/uploads/allimg/160815/1-160Q50Z244.jpg" alt="忙是为了生活，慢是为了享受生活"></a><span></span></li>
+            <li><a href="{{ news_list.1.newurl }}" title="" target="_blank" style="font-size: 12px">{{ news_list.1.title }}<span></span></a></li>
 
-      </ul>
-<h2 class="newt"><span>&#9825;</span>最新文章：<a href="http://www.lmlblog.com/winter/xqsb/37.html"></a>
-    </h2>
+            <li><a href="{{ news_list.2.newurl }}" title="" target="_blank" style="font-size: 12px;">{{ news_list.2.title }}<span></span></a></li>
+        </ul>
 
-<!--    <div class="bloglist">-->
-<!--    		<h2><a title="手机被偷，一个短信让小偷跑步送回" href="http://www.lmlblog.com/winter/wmyl/36.html"  target="_blank"></a>广告位</h2>-->
+        <h3><p><span>美图分享</span> Share</p></h3>
+        <ul class="template">
+            <li><a href="#" title="这世界上有两种东西，是别人抢不走的！" target="_blank"><img
+                    src="http://www.lmlblog.com/winter/uploads/allimg/160924/1-1609240U433.jpg"
+                    alt="这世界上有两种东西，是别人抢不走的！"></a><span></span></li>
+            <li><a href="#" title="手机被偷，一个短信让小偷跑步送回" target="_blank"><img
+                    src="http://www.lmlblog.com/winter/uploads/allimg/160816/1-160Q60H537.jpg"
+                    alt="手机被偷，一个短信让小偷跑步送回"></a><span></span></li>
+            <li><a href="#" title="我  累  了  ……" target="_blank"><img
+                    src="http://www.lmlblog.com/winter/uploads/allimg/160816/1-160Q60GR9.jpg"
+                    alt="我  累  了  ……"></a><span></span></li>
+            <li><a href="#" title="忙是为了生活，慢是为了享受生活" target="_blank"><img
+                    src="http://www.lmlblog.com/winter/uploads/allimg/160815/1-160Q50Z244.jpg"
+                    alt="忙是为了生活，慢是为了享受生活"></a><span></span></li>
 
+        </ul>
+        <h2 class="newt"><span>&#9825;</span>最新文章：<a href="http://www.lmlblog.com/winter/xqsb/37.html"></a>
+        </h2>
 
-<!--    </div>-->
-  </div>
-<aside>
-   <nav>
-      <ul>
-       <li><a href="#" title="html" target="_blank">小说类</a></li>
-       <li><a href="#"  title="CSS" target="_blank">新闻类</a></li>
-       <li><a href="#" title="WORDPRESS" target="_blank">图片类</a></li>
-       <li><a href="#" title="织梦CMS" target="_blank">视频类</a></li>
-<!--       <li><a href="http://www.lmlblog.com/" title="个人博客网站" target="_blank">个人博客网站</a></li>-->
-<!--       <li><a href="http://www.lmlblog.com/wo/" title="关于我"  target="_blank">关于我</a></li>-->
-     </ul>
-    </nav>
-    <p class="slider">
-    　　We are all changing, from simple to complex, from simple to smooth; We all want to change, has been kind, straight forever。
-   </p>
-	<div class="vcard">
-		<a href="#" target="_blank" title="个人档案"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1595582451189&di=b885d46128a7a0521240cad5205bc6f1&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2Fd%2F583bfe1979b99.jpg" alt="MAOLAI博客" class="photo" height="128" width="126"></a>
-      <p class="nickname">网名：**</p>
-      <p class="role">职业：**</p>
-      <p class="role">爱好：**</p>
-      <p class="url">主页：**</p>
-      <p class="address">现居：**</p>
-	</div>
-<!--	<p class="qun">分享是一种快乐，也是一种美德</p>-->
-<!--	<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a></div>-->
-<!--<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{},"image":{"viewList":["weixin","qzone","tsina","douban","renren"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","douban","renren"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>-->
-<!--	<div class="hotcomm">-->
+        <!--    <div class="bloglist">-->
+        <!--    		<h2><a title="手机被偷，一个短信让小偷跑步送回" href="http://www.lmlblog.com/winter/wmyl/36.html"  target="_blank"></a>广告位</h2>-->
 
 
-<!--    </div>-->
-
-   <div class="newbolg">
-
-
-
-
+        <!--    </div>-->
     </div>
-    <div class="tag_yun">
+    <aside>
+        <nav>
+            <ul>
+                <li><a href="#" title="" target="_blank">小说类</a></li>
+                <li><a href="http://127.0.0.1:8000/index/newspage/" title="" target="_blank">新闻类</a></li>
+                <li><a href="#" title="" target="_blank">图片类</a></li>
+                <li><a href="#" title="" target="_blank">视频类</a></li>
+                <li><a href="#" title="" target="_blank">技术类</a></li>
+                <li><a href="#" title="" target="_blank">生活类</a></li>
+            </ul>
+        </nav>
+        <p class="slider">
+            　　We are all changing, from simple to complex, from simple to smooth; We all want to change, has been kind,
+            straight forever。
+        </p>
+        <div class="vcard">
+            <a href="#" target="_blank" title="个人档案"><img
+                    src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1595582451189&di=b885d46128a7a0521240cad5205bc6f1&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2Fd%2F583bfe1979b99.jpg"
+                    alt="MAOLAI博客" class="photo" height="128" width="126"></a>
+            <p class="nickname">网名：Lei、Sunny</p>
+            <p class="role">职业：码农</p>
+            <p class="role">爱好：研究技术</p>
+            <p class="url">主页：**</p>
+            <p class="address">现居：上海</p>
+        </div>
+        <!--	<p class="qun">分享是一种快乐，也是一种美德</p>-->
+        <!--	<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a></div>-->
+        <!--<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{},"image":{"viewList":["weixin","qzone","tsina","douban","renren"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","douban","renren"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>-->
+        <!--	<div class="hotcomm">-->
 
-    <div class="tag_yun_list">
+
+        <!--    </div>-->
+
+        <div class="newbolg">
 
 
+        </div>
+        <div class="tag_yun">
 
-	</div>
-    </div>
+            <div class="tag_yun_list">
 
-</aside>
+
+            </div>
+        </div>
+
+    </aside>
 </div>
 <footer>
-<div id="copright"><span>######<a target="_blank" href='http://www.chengxuz.com/moban/1229.html'>*****</a><script type="text/javascript">
+    <div id="copright"><span>时光荏苒，岁月如梭！！！</span><a target="_blank" href='http://www.chengxuz.com/moban/1229.html'>朋友加油</a><script
+            type="text/javascript">
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fca9c9aeca6d24b987c40c4c8ad091e42' type='text/javascript'%3E%3C/script%3E"));
 </script>
-</div>
+    </div>
 </footer>
 <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="http://www.lmlblog.com/winter/templets/xq/js/snowy.js"></script>
-<style type="text/css">.snow-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:100001;}</style>
+<style type="text/css">.snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100001;
+}</style>
 <div class="snow-container"></div>
 <script language="javascript">
-var obj=null;
-var As=document.getElementById('nav').getElementsByTagName('a');
-obj = As[0];
-for(i=1;i<As.length;i++){if(window.location.href.indexOf(As[i].href)>=0)
-obj=As[i];}
-obj.id='nav_current'
+    var obj = null;
+    var As = document.getElementById('nav').getElementsByTagName('a');
+    obj = As[0];
+    for (i = 1; i < As.length; i++) {
+        if (window.location.href.indexOf(As[i].href) >= 0)
+            obj = As[i];
+    }
+    obj.id = 'nav_current'
 </script>
 </body>
 </html>

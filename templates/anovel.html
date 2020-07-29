@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Djanjo</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <style>
+        .float-button {
+            position: fixed;
+            height: 90px;
+            width: 40px;
+            bottom: 90px;
+            right: 50px;
+            background: #b4d145;
+        }
+    </style>
+</head>
+<body>
+<div class="container page-header">
+    <h1 style="color: crimson;">国际新闻
+        <small></small></h1>
+
+</div>
+<div class="container page-body">
+    <div class="col-md-9" role="main">
+        <div class="body-main">
+            {% for news in news_list %}
+                <div>
+                    <h4><a href="{{ news.newurl }}">{{ news.title }}</a></h4>
+
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+    <div class="col-md-3" role="complementary">
+    <div>
+        <h2>最新新闻</h2>
+        {% for news in news_list %}
+            {% if forloop.counter <= 3 %}
+                <h4><a href="{{ news.newurl }}" style="color: darkblue">{{ news.title }}</a></h4>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+    <div class=".float-button">
+        <a href="http://127.0.0.1:8000/index/">
+            <button type="button" onclick="" class=""
+                    style="position: fixed;height: 20px;width: 90px;bottom: 30px;right: 30px;background: beige;border-radius: 4px;background-clip: padding-box;">
+                返回首页
+            </button>
+        </a>
+
+    </div>
+
+</div>
+</div>
+</body>
+</html>

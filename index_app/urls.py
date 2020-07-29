@@ -16,10 +16,13 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
 
 from index_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
+    path('newspage/', views.newspage, name='newspage'),
+    path('', RedirectView.as_view(url='/newspage')),  # 定向跳转
 ]

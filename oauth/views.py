@@ -80,7 +80,6 @@ def authorize(request):
             user = temp
         except ObjectDoesNotExist:
             pass
-        # facebook的token过长
         if type == 'facebook':
             user.token = ''
         if user.email:
@@ -100,7 +99,6 @@ def authorize(request):
 
                 user.author = author
                 user.save()
-
                 oauth_user_login_signal.send(sender=authorize.__class__, id=user.id)
                 login(request, author)
                 return HttpResponseRedirect(nexturl)

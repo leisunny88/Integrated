@@ -18,6 +18,7 @@ class NewData(object):
         self.url = "https://www.hqck.net"
         self.time = random.randint(0, 2)
         self.url_list = []
+        self.text_data_list = []
 
     def get_news_link(self):
         html = requests.get(url=self.url, headers=self.headers)
@@ -43,3 +44,28 @@ class NewData(object):
             # )
             time.sleep(self.time)
         return self.url_list
+
+    def news_text(self, i):
+        for line in self.url_list:
+            title = line[2]
+            url = line[1]
+            str_text = ""
+            while True:
+                try:
+                    html = requests.get(url=url, headers=self.headers)
+                    t_soup = BeautifulSoup(html.text, "lxml")
+                    div_list = t_soup.find('div', attrs={"class": "article_bd"})
+                    text_data = div_list.text
+                    str_text += text_data
+                    self.url = self.url[0:-5] + '_%s.html' % str(i)
+                    i += 1
+                except Exception as ex:
+                    break
+            self.text_data_list.append([title, str_text])
+        return self.text_data_list
+
+
+
+
+
+

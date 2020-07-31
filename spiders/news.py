@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import random
 import time
-
+from exts.dyload import dynamic_load
 # from django.conf import settings
 # settings.configure()
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'website.settings')
@@ -65,7 +65,33 @@ class NewData(object):
         return self.text_data_list
 
 
+class ANovel(object):
+    def __init__(self):
+        pass
 
 
+class Video(object):
+    def __init__(self):
+        self.headers = {
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
+        }
+        self.url = "https://v.qq.com/channel/movie?listpage=1&channel=movie&itype=100062"
+        self.time = random.randint(0, 2)
+        self.video_list = list()
 
+    def get_video_link(self):
+        # html = dynamic_load(self.url)
+        html = requests.get(url=self.url, headers=self.headers)
+        html.encoding = 'utf-8'
+        soup = BeautifulSoup(html.text, "lxml")
+        div_list = soup.find_all('div', attrs={"class": "list_item"})
+        for div in div_list:
+            link = div.find('a')
+            # print(link.get('href'), link.get('title'), link.find('div', attrs={"class": "figure_caption"}).text)
+            play_time = link.find('div', attrs={"class": "figure_caption"}).text
+            title = link.get("title")
+            url_link = link.get("href")
+            self.video_list.append([play_time, title, url_link])
+            time.sleep(self.time)
+        return self.video_list
 

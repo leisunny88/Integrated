@@ -12,4 +12,4 @@ def index(request):
 def newspage(request):
     all_news = NewsDataModel.objects.all()
 
-    return render(request, './anovel.html', {'news_list':all_news})
+    return render(request, './news.html', {'news_list':all_news})
